@@ -48,11 +48,7 @@
 
 	  <div class="flex justify-end">
 	  <button type="submit" class="btn btn-primary p-1 w-full md:w-48">LOGIN</button></div>
-
-
-
-
-
-
 	</form>
 </div>
+
+

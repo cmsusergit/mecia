@@ -1,16 +1,18 @@
-<script>//
+<script>// 
 // @ts-nocheck
 
 	import { goto } from "$app/navigation";
 	import { onMount } from "svelte";
     import { authStore } from "../auth";
+    import logo from '$lib/images/logo.png'
   	let user
     const unsubscribe = authStore.subscribe(value => {
        user = value;
      });
+
+
     const logout=async()=>{    
         await authStore.logout();
-
         user=''
         goto('/login');
 	}
@@ -22,10 +24,10 @@ onMount(() => {
 </script>
 <div class="container bg-primary p-2 text-primary-content mx-auto w-full">
   <nav class="navbar">
-    <div class="navbar-start">
-
-      <a class="uppercase btn btn-ghost text-xl md:text-2xl" href="/">
-        Test Application,Vasad
+    <div class="navbar-start">      
+    <a class="uppercase btn btn-ghost text-xl md:text-2xl" href="/">
+      <img src={logo} class="w-10 h-10" alt="logo" >
+        ધ ન્યૂ ઇંગલિશ સ્કૂલ ટ્રસ્ટ , વાસદ
       </a>
     </div>
     {#if user}
@@ -55,8 +57,8 @@ onMount(() => {
         <!-- svelte-ignore a11y-no-noninteractive-tabindex 
         -->
         <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-            <li class="hover:underline hover:font-bold"><a href="/attendance">REGISTRATION</a></li>
-            <li class="hover:underline hover:font-bold"><a href="/entry">QR SCANNER</a></li>
+            <li class="text-base-content hover:font-bold"><a href="/attendance">REGISTRATION</a></li>
+            <li class="text-base-content hover:font-bold"><a href="/entry">QR SCANNER</a></li>
         </ul>
         </div>
     {/if}
